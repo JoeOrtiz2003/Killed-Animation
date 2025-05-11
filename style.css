@@ -1,16 +1,16 @@
 :root {
-    --border-color: #344B13;
-    --header-color: black;
+    --border-color: #00b7ed;
+    --header-color: white;
     --header-font-family: "UI-Light", Arial, Helvetica, sans-serif;
-    --header-text-shadow: 0 0 10px #FDF4EB;
-    --header-background-color: #FDF4EB;
+    --header-text-shadow: 0 0 10px black;
+    --header-background-color: #147b9b;
     --info-font-family: "UI-Bold", Arial, Helvetica, sans-serif;
-    --team-color: black;
-    --team-text-shadow: 0 0 10px #e2e3e3;
-    --team-background-color: #FDF4EB;
-    --kill-color: black;
-    --kill-text-shadow: 0 0 10px #FDF4EB;
-    --kill-background-color: #FDF4EB;
+    --team-color: white;
+    --team-text-shadow: 0 0 10px black;
+    --team-background-color: #003d4b;
+    --kill-color: white;
+    --kill-text-shadow: 0 0 10px black;
+    --kill-background-color: #003d4b;
     --font: Norwester;
   }
   
@@ -31,17 +31,18 @@
   }
   
   #header {
-    padding: 22px 29px;
+    margin: 0;                /* Remove default <p> margin */
+    padding: 22px 29px;       /* Reduce padding to minimize space */
     color: var(--header-color);
     font-family: var(--font);
     font-size: 54px;
-    line-height: 58px;
+    line-height: 1;           /* Tighter vertical spacing */
     text-transform: uppercase;
     white-space: nowrap;
     word-break: keep-all;
     text-shadow: var(--header-text-shadow);
     background-color: var(--header-background-color);
-  }
+  } 
   
   #textWrapper {
     width: 0;
@@ -74,16 +75,21 @@
     line-height: 35px;
     font-size: 33px;
     white-space: nowrap;
+  
+    /* Center the text */
+    flex: 1;
+    text-align: center;
   }
+  
   
   #killsWrapper {
     display: flex;
-    height: 0;
+    height: 0px;
     overflow: hidden;
     align-items: center;
     background-color: var(--kill-background-color);
   }
-  
+
   #teamKills {
     height: 35px;
     padding: 2px 29px;

@@ -53,7 +53,7 @@ function showEliminatedBanner(teamData, wrapper, onComplete) {
   tl.to("#innerWrapper", { height: "auto", duration: 0.4 })
     .to("#headerWrapper", { width: "auto", duration: 0.8 })
     .to("#textWrapper", { width: "auto", height: "auto", duration: 0.8 }, "<+=0.2")
-    .to("#killsWrapper", { height: "auto", duration: 0.8 });
+    .to("#killsWrapper", { height: "58", duration: 0.8 });
 }
 
 function fetchTeamDataAndAnimate() {
