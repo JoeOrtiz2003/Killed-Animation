@@ -4,7 +4,7 @@ const query = encodeURIComponent("SELECT I, E, G, F, J"); // D=name, E=tag, G=ki
 const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${query}`;
 const showLogo = true;
 const fetchInterval = 1000; // in ms
-const MAX_ELIMINATED_TEAMS = 20;
+const MAX_ELIMINATED_TEAMS = 21;
 
 const lastAliveStatus = new Map();
 const shownEliminatedTags = new Set();
