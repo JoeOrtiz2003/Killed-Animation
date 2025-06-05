@@ -1,10 +1,10 @@
 const sheetID = "1srwCRcCf_grbInfDSURVzXXRqIqxQ6_IIPG-4_gnSY8";
 const sheetName = "INPUT";
-const query = encodeURIComponent("SELECT I, E, G, F, J"); // D=name, E=tag, G=kills, F=alive, J=logo
+const query = encodeURIComponent("SELECT I, E, F, G, J LIMIT 24 OFFSET 0"); // Rows 4–27
 const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${query}`;
 const showLogo = true;
 const fetchInterval = 1000; // in ms
-const MAX_ELIMINATED_TEAMS = 18;
+const MAX_ELIMINATED_TEAMS = 24;
 
 const lastAliveStatus = new Map();
 const shownEliminatedTags = new Set();
@@ -66,26 +66,43 @@ function fetchTeamDataAndAnimate() {
       const rows = json.table.rows;
 
       const eliminatedTeams = rows
-          .map(row => {
-            const cells = row.c || [];
-            return {
-              name: cells[0]?.v || "Unknown",        // Only use the actual name
-              tag: cells[1]?.v || "XXX",
-              kills: cells[2]?.v || 0,
-              alive: cells[3] != null ? cells[3].v : 1,
-              logo: cells[4]?.v || null
-            };
-          })
-      
+        .map(row => {
+          const cells = row.c || [];
+
+          // DEBUG: log raw values
+          console.log("Row parsed:", {
+            name: cells[0]?.v,
+            tag: cells[1]?.v,
+            alive: cells[2]?.v,
+            kills: cells[3]?.v,
+            logo: cells[4]?.v
+          });
+
+          return {
+            name: cells[0]?.v || "Unknown",  // D
+            tag: cells[1]?.v || "XXX",       // E
+            alive: cells[2]?.v ?? 1,         // F
+            kills: cells[3]?.v || 0,         // G
+            logo: cells[4]?.v || null        // J
+          };
+        })
         .filter(team => {
-          const wasAlive = lastAliveStatus.get(team.tag) !== 0;
+          const wasAlive = lastAliveStatus.has(team.tag)
+            ? lastAliveStatus.get(team.tag) !== 0
+            : true;
+
           lastAliveStatus.set(team.tag, team.alive);
-          return (
+
+          const isEliminated = (
             team.alive === 0 &&
             wasAlive &&
             !shownEliminatedTags.has(team.tag) &&
             shownEliminatedTags.size < MAX_ELIMINATED_TEAMS
           );
+
+          console.log(`Team ${team.tag} => alive: ${team.alive}, wasAlive: ${wasAlive}, show: ${isEliminated}`);
+
+          return isEliminated;
         });
 
       if (eliminatedTeams.length === 0) return;
