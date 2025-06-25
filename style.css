@@ -1,29 +1,32 @@
 :root {
-    --border-color: #49bcdb;
+    --border-color: #bfc0ff;
     --header-color: white;
     --header-font-family: "UI-Light", Arial, Helvetica, sans-serif;
     --header-text-shadow: 0 0 10px black;
-    --header-background-color: #255868;
+    --header-background-color: #3f395f;
     --info-font-family: "UI-Bold", Arial, Helvetica, sans-serif;
     --team-color: white;
     --team-text-shadow: 0 0 10px black;
-    --team-background-color: #1f6074;
+    --team-background-color: #3f395f;
     --kill-color: white;
     --kill-text-shadow: 0 0 10px black;
-    --kill-background-color: #043a4b;
+    --kill-background-color: #4e486e;
     --font: Norwester;
   }
   
-  #innerWrapper {
-    display: flex;
-    position: absolute;
-    height: 0;
-    left: 62px;
-    bottom: 180px;
-    flex-direction: column;
-    border-left: 26px solid var(--border-color);
-    overflow: hidden;
-  }
+ #innerWrapper {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  border-left: 26px solid var(--border-color);
+  overflow: hidden;
+
+  /* Positioning for left-center */
+  left: 0;                 /* Align to the left edge */
+  top: 50%;                /* Center vertically */
+  transform: translateY(-40%); /* Offset by 50% of own height to center exactly */
+}
+
   
   #headerWrapper {
     width: 0;
@@ -32,10 +35,10 @@
   
  #header {
   margin: 0;                /* Remove default <p> margin */
-  padding: 22px 29px;       /* Reduce padding to minimize space */
+  padding: 12px 20px;       /* Reduce padding to minimize space */
   color: var(--header-color);
   font-family: var(--font);
-  font-size: 54px;
+  font-size: 36px;
   line-height: 1;           /* Tighter vertical spacing */
   text-transform: uppercase;
   white-space: nowrap;
@@ -60,22 +63,22 @@
   #logoTextWrapper {
     height: 54px;
     display: flex;
-    padding: 2px 29px;
+    padding: 2px 20px;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     background-color: var(--team-background-color);
   }
   
   #teamLogo {
-    height: 50px;
+    height: 36px;
   }
   
   #teamName {
-    height: 35px;
+    height: 28px;
     color: var(--team-color);
     text-shadow: var(--team-text-shadow);
-    line-height: 35px;
-    font-size: 33px;
+    line-height: 28px;
+    font-size: 24px;
     white-space: nowrap;
   
     /* Center the text */
@@ -90,6 +93,7 @@
     overflow: hidden;
     align-items: center;
     background-color: var(--kill-background-color);
+    
   }
 
   #teamKills {
@@ -97,8 +101,8 @@
     padding: 2px 29px;
     color: var(--kill-color);
     text-shadow: var(--kill-text-shadow);
-    line-height: 35px;
-    font-size: 33px;
+    line-height: 28px;
+    font-size: 24px;
     white-space: nowrap;
   }
   
