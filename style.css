@@ -1,0 +1,174 @@
+:root {
+    --border-color: #da0000;
+    --header-color: white;
+    --header-font-family: "UI-Light", Arial, Helvetica, sans-serif;
+    --header-text-shadow: 0 0 10px black;
+    --header-background-color: #1b1a1a;
+    --info-font-family: "UI-Bold", Arial, Helvetica, sans-serif;
+    --team-color: white;
+    --team-text-shadow: 0 0 10px black;
+    --team-background-color: #1b1b1b;
+    --kill-color: white;
+    --kill-text-shadow: 0 0 10px black;
+    --kill-background-color: #222121;
+    --font: Norwester;
+  }
+  
+@font-face {
+    font-family: "Anton-Regular";
+    src: url("./fonts/Anton-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("./fonts/Roboto-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Oswald-SemiBold";
+    src: url("./fonts/Oswald-SemiBold.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Oswald-Regular";
+    src: url("./fonts/Oswald-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "agencygothicct_condensed";
+    src: url("./fonts/agencygothicct_condensed.otf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Agency Gothic CT Bold";
+    src: url("./fonts/Agency Gothic CT Bold.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "agencygothicct_medium";
+    src: url("./fonts/agencygothicct_medium.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "Arame-Regular";
+  src: url("./fonts/Arame-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Arame-Bold";
+  src: url("./fonts/Arame-Bold.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+ #innerWrapper {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  border-left: 26px solid var(--border-color);
+  overflow: hidden;
+
+  /* Positioning for left-center */
+  left: 0;                 /* Align to the left edge */
+  top: 50%;                /* Center vertically */
+  transform: translateY(-40%); /* Offset by 50% of own height to center exactly */
+}
+
+  
+  #headerWrapper {
+    width: 0;
+    overflow: hidden;
+  }
+  
+ #header {
+  margin: 0;                /* Remove default <p> margin */
+  padding: 12px 20px;       /* Reduce padding to minimize space */
+  color: var(--header-color);
+  font-family: 'Arame-Regular';
+  font-size: 36px;
+  line-height: 1;           /* Tighter vertical spacing */
+  text-transform: uppercase;
+  white-space: nowrap;
+  word-break: keep-all;
+  text-shadow: var(--header-text-shadow);
+  background-color: var(--header-background-color);
+  text-align: center;       /* Center the text horizontally */
+}
+
+  
+  #textWrapper {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  #textInnerWrapper {
+    display: flex;
+    font-family: var(--info-font-family);
+  }
+  
+  #logoTextWrapper {
+    height: 54px;
+    display: flex;
+    padding: 2px 20px;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--team-background-color);
+  }
+  
+  #teamLogo {
+    height: 36px;
+  }
+  
+  #teamName {
+    height: 28px;
+    color: var(--team-color);
+    text-shadow: var(--team-text-shadow);
+    line-height: 28px;
+    font-size: 24px;
+    white-space: nowrap;
+    font-family: 'Arame-Regular';
+  
+    /* Center the text */
+    flex: 1;
+    text-align: center;
+  }
+  
+  
+  #killsWrapper {
+    display: flex;
+    height: 0px;
+    overflow: hidden;
+    align-items: center;
+    background-color: var(--kill-background-color);
+    
+  }
+
+  #teamKills {
+    height: 35px;
+    padding: 2px 29px;
+    color: var(--kill-color);
+    text-shadow: var(--kill-text-shadow);
+    line-height: 28px;
+    font-size: 24px;
+    white-space: nowrap;
+    font-family: 'Arame-Regular';
+  }
+  
+  
